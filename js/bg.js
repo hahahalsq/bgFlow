@@ -11,8 +11,7 @@ $(document).ready(function(){
     var chinese = "0123456789qwertyuiopasdfghjklzxcvbnm,./;'\[]QWERTYUIOP{}ASDFGHJHJKL:ZXCVBBNM<>?がガぎギぐグげゲごゴきゃキャきゅキュきょキョりゃリャゅリュりょリョ";
     //converting the string into an array of single characters
     chinese = chinese.split("");
- 
-    var font_size = 10;
+    var font_size = 12;
     var columns = c.width / font_size; //number of columns for the rain
     //an array of drops - one per column
     var drops = [];
@@ -38,11 +37,14 @@ $(document).ready(function(){
             var text = chinese[Math.floor(Math.random() * chinese.length)];
             //x = i*font_size, y = value of drops[i]*font_size
             ctx.fillText(text, i * font_size, drops[i] * font_size);
- 
+            console.log(ctx);
             //sending the drop back to the top randomly after it has crossed the screen
             //adding a randomness to the reset to make the drops scattered on the Y axis
             if (drops[i] * font_size > c.height && Math.random() > 0.975)
                 drops[i] = 0;
+
+            console.log('~~~~~~~~~~~~');
+            console.log(drops[i]);
  
             //incrementing Y coordinate
             drops[i]++;
